@@ -1,3 +1,4 @@
+
 import pydeck as pdk
 import pandas as pd
 import json
@@ -12,12 +13,13 @@ mblayer=[]
 # Create a placeholder for pydeck map
 map = st.empty()
 
-#layerを読み込む
+#It was so slow that I read only 100 module..
 for idx2 in range(100):
     for idx in range(100):
         jsonname="hoge.json"
         df=pd.read_json(jsonname)
         df["coordinates"] = df["waypoints"].apply(lambda f: [item["coordinates"] for item in f])
+        # 1413946470 is  initial epoch time ** in my case. **
         df["timestamps"] = df["waypoints"].apply(lambda f: [item["timestamp"]/1000 -1413946470 for item in f])
         df.drop(["waypoints"], axis=1, inplace=True)
 
@@ -42,8 +44,6 @@ for idx2 in range(100):
 view_state = pdk.ViewState(latitude=22.54554, longitude=114.0683, zoom=11, bearing=0, pitch=45)
 
 # Render
-# デモのために繰返す
-for index0 in range(10000):
     for index in range(100):
         r = pdk.Deck(layers=[mblayer[index]], initial_view_state=view_state)
         map.pydeck_chart(r)
