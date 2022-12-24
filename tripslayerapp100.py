@@ -1,3 +1,4 @@
+# Memo :::: Trips layer animation on streamlit & pydeck
 
 import pydeck as pdk
 import pandas as pd
@@ -13,7 +14,8 @@ mblayer=[]
 # Create a placeholder for pydeck map
 map = st.empty()
 
-#It was so slow that I read only 100 module..
+#It was so slow that I moved only 100 module..
+#json format follows pydeck example.
 for idx2 in range(100):
     for idx in range(100):
         jsonname="hoge.json"
