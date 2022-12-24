@@ -42,8 +42,7 @@ for idx2 in range(100):
     mblayer.append(mbp0)
     mbp0=[]
     
-#view_state = pdk.ViewState(latitude=37.7749295, longitude=-100.4194155, zoom=11, bearing=0, pitch=45)
-view_state = pdk.ViewState(latitude=22.54554, longitude=114.0683, zoom=11, bearing=0, pitch=45)
+view_state = pdk.ViewState(latitude=37.7749295, longitude=-100.4194155, zoom=11, bearing=0, pitch=45)
 
 # Render
     for index in range(100):
